@@ -3,7 +3,7 @@ Find all Prime Facotrs(if there are any) and display them.
 '''
 
 def isPrime(i):
-    for j in range(2,i-1):
+    for j in range(2,i):
         if i % j == 0:
             return False
     return True
