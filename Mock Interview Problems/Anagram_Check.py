@@ -15,8 +15,8 @@ Note: Ignore spaces and capitalization. So "d go" is an anagram of "God" and "do
 '''
 # My solution
 def anagram(s1,s2):
-    s1_list = list(''.join(s1.split()))
-    s2_list = list(''.join(s2.split()))
+    s1_list = list(''.join(s1.lower().split()))
+    s2_list = list(''.join(s2.lower().split()))
     
     if sorted(s1_list) == sorted(s2_list):
         return True
