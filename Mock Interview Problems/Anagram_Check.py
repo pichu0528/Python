@@ -23,7 +23,8 @@ def anagram(s1,s2):
     else:
         return False
 
-# My solution 2 - using dictionary to keep the count of each character, and compare the counts of each character
+# My solution 2 - using two dictionaries to keep the count of each character from each string, 
+#                 and compare the counts of each character
 def anagram2(s1,s2):
     s1 = s1.replace(' ','').lower()
     s2 = s2.replace(' ','').lower()
@@ -52,6 +53,42 @@ def anagram2(s1,s2):
         
         except Exception:
             return False
+    return True
+
+# My solution 3 - using one dictionary to keep count. Subtract the count if the character exists in the second string.
+#                 If the character doesn't exist in the dictionary, add the character as a key and give a count 1.
+#                 Check the count dictionary to see if all the values are equal to 0. If not, then return False
+def anagram3(s1,s2):
+    s1 = s1.replace(' ','').lower()
+    s2 = s2.replace(' ','').lower()
+    
+    # check for edge case - different length, return False
+    if len(s1) != len(s2):
+        return False
+    
+    count = {} # dictionary to keep count for s1
+    
+    for letter in s1:
+        if letter in count:
+            count[letter] += 1
+        else:
+            count[letter] = 1
+    
+    # decrement the count by 1 if the character also exists in s2
+    # if the character doesn't exist in count, add the character with
+    # count 1
+    for letter in s2:
+        if letter in count:
+            count[letter] -= 1
+        else:
+            count[letter] = 1
+    
+    # go through the keys in count, check if the value == 0
+    # if not, then it is not an anagram
+    for k in count:
+        if count[k] != 0:
+            return False
+        
     return True
         
 '''
