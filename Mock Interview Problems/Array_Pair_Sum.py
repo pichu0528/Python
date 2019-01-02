@@ -36,6 +36,26 @@ def pair_sum2(arr,k):
             continue
     
     return len(pairs)//2
+   
+# My solution 3 - using set to keep track of the visited value, and store tuple result in another set.
+def pair_sum3(arr,k):
+    # Edge case check
+    if len(arr) < 2:
+        return
+    # Sets for tracking
+    seen = set()
+    output = set()
+    
+    for num in arr:
+        target = k - num
+        if target not in seen:
+            seen.add(num)
+        else:
+            output.add(((min(num,target)),max(num,target)))
+        
+    return len(output)
+    # if you are being asked to print out the pairs
+    # print '\n'.join(map(str,list(output)))
     
 """
 RUN THIS CELL TO TEST YOUR SOLUTION
