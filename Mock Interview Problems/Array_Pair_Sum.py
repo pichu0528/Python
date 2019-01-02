@@ -74,3 +74,4 @@ class TestPair(object):
 t = TestPair()
 t.test(pair_sum1)
 t.test(pair_sum2)
+t.test(pair_sum3)
