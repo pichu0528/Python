@@ -9,10 +9,9 @@ Remember, always think of what the base case will look like. In this case, we ha
 n = 0
 '''
 
-def factorial(n):
+def rec_sum(n):
     
-    # base case
     if n == 0:
-        return 1
+        return 0
     else:
-        return n * factorial(n-1)
+        return n + rec_sum(n-1)
