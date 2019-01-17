@@ -6,7 +6,8 @@ For example: if n = 4321, return 4 + 3 + 2 + 1 = 10
 '''
 def sum_func(n):
     
-    # base case: when n < 10 return n
+    # base case: when n < 10 return n or when there is one digit left
+    # if len(str(n)) == 1:
     if n < 10:
         return n
     else:
