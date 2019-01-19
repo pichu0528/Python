@@ -40,4 +40,19 @@ def fib_iter(n):
         
     return result[-1]
     
-# Dynamically
+# Dynamically - with memoization
+
+memoization = {}
+
+def fib_dyn(n):
+    
+    # base case
+    if n == 1:
+        return 1
+    elif n == 0:
+        return 0
+    
+    if not n in memoization:
+        memoization[n] = fib_dyn(n-2) + fib_dyn(n-1)
+        
+    return memoization[n]
