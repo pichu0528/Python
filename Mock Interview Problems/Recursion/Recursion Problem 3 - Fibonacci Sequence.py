@@ -24,21 +24,6 @@ def fib_rec(n):
         return n
     
     return fib_rec(n-1) + fib_rec(n-2)
-
-# Iteratively
-def fib_iter(n):
-    result = [1,1]
-    if n == 1 or n == 2:
-        return 1
-    elif n == 0:
-        return 0
-    elif n < 0:
-        return 'Can\'t use a negative number'
-    
-    for i in range(2,n):
-        result.append(result[i-1]+result[i-2])
-        
-    return result[-1]
     
 # Dynamically - with memoization
 
@@ -56,3 +41,50 @@ def fib_dyn(n):
         memoization[n] = fib_dyn(n-2) + fib_dyn(n-1)
         
     return memoization[n]
+
+# Iteratively - Solution 1
+def fib_iter1(n):
+    result = [1,1]
+    if n == 1 or n == 2:
+        return 1
+    elif n == 0:
+        return 0
+    elif n < 0:
+        return 'Can\'t use a negative number'
+    
+    for i in range(2,n):
+        result.append(result[i-1]+result[i-2])
+        
+    return result[-1]
+
+# Iteratively - Solution 2
+def fib_iter2(n):
+    
+    a, b = 0, 1
+    
+    for i in range(n):
+        a, b = b, a+b
+        
+    return a
+
+"""
+UNCOMMENT THE CODE AT THE BOTTOM OF THIS CELL TO SELECT WHICH SOLUTIONS TO TEST.
+THEN RUN THE CELL.
+"""
+
+from nose.tools import assert_equal
+
+class TestFib(object):
+    
+    def test(self,solution):
+        assert_equal(solution(10),55)
+        assert_equal(solution(1),1)
+        assert_equal(solution(23),28657)
+        print('Passed all tests.')
+# UNCOMMENT FOR CORRESPONDING FUNCTION
+t = TestFib()
+
+t.test(fib_rec)
+t.test(fib_dyn) # Note, will need to reset cache size for each test!
+t.test(fib_iter1)
+t.test(fib_iter2)
