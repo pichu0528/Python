@@ -21,7 +21,7 @@ class BinaryTree(object):
     def insertRight(self,newNode):
         
         if self.rightChild == None:
-            self.rightChild = newNode
+            self.rightChild = BinaryTree(newNode)
         else:
             t = BinaryTree(newNode)
             # pushing the original right child down
