@@ -1,4 +1,4 @@
-# Solution 1
+# Solution 1 - start from the beginning of the array. Perform n-1 times and check every slots.
 def bubble_sort1(arr):
     
     n = len(arr)
@@ -12,7 +12,8 @@ def bubble_sort1(arr):
         
     return arr
     
-# Solution 2
+# Solution 2 - start from the end of the array. Perform better than Solution 1
+#              because we are decreasing the number of slots to check each time.
 def bubble_sort2(arr):
     # For every element (arranged backwards)
     for n in range(len(arr)-1,0,-1):
