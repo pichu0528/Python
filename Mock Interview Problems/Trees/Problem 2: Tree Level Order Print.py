@@ -19,9 +19,9 @@ class Node:
         self.val =  val
 
 # Solution 1 - use a list that behaves like a queue to keep track of the nodes.
-               Use currentcount and nextcount to represent how many nodes are in the current level
-               and the next level, so we can determine when to insert a new line.
-               Using BFS property to solve this problem.
+#              Use currentcount and nextcount to represent how many nodes are in the current level
+#              and the next level, so we can determine when to insert a new line.
+#              Using BFS property to solve this problem.
 
 def levelOrderPrint1(tree):
     
@@ -46,7 +46,7 @@ def levelOrderPrint1(tree):
             currentcount, nextcount = nextcount, currentcount
             
 # Solution 2 - similar idea as the solution 1, but using deque from collections as the 
-               container for the nodes
+#              container for the nodes
 
 import collections
 
