@@ -15,6 +15,10 @@ def shell_sort(arr):
             
             gap_insertion_sort(arr,start,sublistcount)
             
+        # visual presentation of the list
+        print('After increments of size: ', sublistcount)
+        print('The list is ', arr)
+            
         sublistcount = sublistcount//2
     
 def gap_insertion_sort(arr,start,gap):
