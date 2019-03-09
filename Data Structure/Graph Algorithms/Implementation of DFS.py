@@ -19,6 +19,7 @@ def dfs(graph,start):
         if vertex not in visited:
             visited.add(vertex)
             
+            # the subtract is only available for sets
             stack.extend(graph[vertex] - visited)
             
     return visited
