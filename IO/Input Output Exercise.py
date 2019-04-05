@@ -23,8 +23,28 @@ if __name__ == '__main__':
   read_file('test.txt')
   
 # 2: Write a Python program to read first n lines of a file
-# Name: read_file
+# Name: read_file_n_lines
+# Input: fname - the name of the file
+#        nlines - the number of lines
+from itertools import islice
+def read_file_n_lines(fname, nlines):
+    with open(fname) as f:
+        for line in islice(f,nlines):
+            print(line)
+            
+if __name__ == "__main__":
+    read_file_n_lines('test.txt',2)
+    
+# 3: Write a Python program to append text to a file and display the text
+# Name: read_file(fname)
 # Input: fname - the name of the file
 def read_file(fname):
-
+  with open(fname, 'w') as myfile:
+    myfile.write('Python Exercise\n')
+    myfile.write('Java Exercises')
+  
+  txt = open(fname)
+  print(txt.read())
+  
 if __name__ == "__main__":
+  read_file('test.txt')
