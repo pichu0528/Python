@@ -60,4 +60,4 @@ def read_file_from_last(fname,nlines):
             print(line)
             
 if __name__ == "__main__":
-    read_file_from_last('test1.txt',2)
+    read_file_from_last('test.txt',2)
