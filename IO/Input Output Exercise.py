@@ -36,7 +36,7 @@ if __name__ == "__main__":
     read_file_n_lines('test.txt',2)
     
 # 3: Write a Python program to append text to a file and display the text
-# Name: read_file(fname)
+# Name: read_file
 # Input: fname - the name of the file
 def read_file(fname):
   with open(fname, 'w') as myfile:
@@ -48,3 +48,16 @@ def read_file(fname):
   
 if __name__ == "__main__":
   read_file('test.txt')
+  
+# 4: Write a Python program to read last n lines of a file
+# Name: read_file_from_last
+# Input: fname - the name of the file
+#        nlines - the number of lines
+def read_file_from_last(fname,nlines):
+    with open(fname) as f:
+        newline = f.readlines()[-nlines:]
+        for line in newline:
+            print(line)
+            
+if __name__ == "__main__":
+    read_file_from_last('test1.txt',2)
