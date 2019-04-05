@@ -61,3 +61,28 @@ def read_file_from_last(fname,nlines):
             
 if __name__ == "__main__":
     read_file_from_last('test.txt',2)
+    
+# 5: Write a Python program to read a file line by line and store it into a list
+# Name: read_file_line_by_line
+# Input: fname - the name of the file
+def read_file_line_by_line(fname):
+    file_list = open(fname).readlines()
+    print(file_list)
+    
+if __name__ == "__main__":
+    read_file_line_by_line('test.txt')
+    
+# 6: Write a program to find the longest words
+# Name: file_read_max
+# Input: fname - the name of the file
+def file_read_max(fname):
+    d = dict()
+    
+    with open(fname) as f:
+        for line in f.readlines():
+            line = line.split()
+            d.update({len(w):w for w in line})
+    print(d[max(d.keys())])
+
+if __name__ == "__main__":
+    file_read_max('test.txt')
